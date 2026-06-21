@@ -9,7 +9,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static frontend files from your public folder
+// Serve static frontend files from your root folder
 app.use(express.static(path.join(__dirname)));
 
 

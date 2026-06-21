@@ -389,7 +389,7 @@ a {
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url('/photos/hero.jpg');
+    background-image: url('../photos/hero.jpg');
     background-size: cover;
 
 }

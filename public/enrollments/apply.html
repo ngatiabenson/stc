@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Application Form - Spiritans Technical College</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="nav-container">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="width: 50px; height: 50px; background: var(--brand-blue); border: 2px solid var(--brand-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900;"><a href="/index.html" style="color:white; text-decoration:none;">STC</a></div>
+                <div>
+                    <h2 style="color: var(--brand-blue); font-size: 1.25rem; font-weight: 900;">SPIRITANS</h2>
+                    <h5 style="color: var(--brand-red); font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">Technical College</h5>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html" class="nav-link-item">Home</a></li>
+                    <li><a href="/enrollments/admission.html" class="nav-link-item">Requirements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="max-width: 750px; margin: 3rem auto; padding: 0 1.5rem; flex-grow: 1;">
+        <div style="background: white; border: 1px solid #E2E8F0; padding: 2.5rem; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3 style="color: var(--brand-blue); font-size: 1.75rem; font-weight: 800; margin-bottom: 0.25rem;">STC Student On-Boarding Portal</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Ensure all fields match your official legal documentation before submitting.</p>
+            </div>
+
+            <form action="/api/enrollments/submit" method="POST">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Full Legal Name</label>
+                        <input type="text" name="fullName" style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; outline: none;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Date of Birth</label>
+                        <input type="date" name="dateOfBirth" required style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; outline: none; background: white;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">National ID Number</label>
+                        <input type="text" name="idNumber" style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; outline: none;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Birth Certificate Number</label>
+                        <input type="text" name="birthCertNumber"  style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; outline: none;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Mobile Phone Contact</label>
+                        <input type="tel" name="phone" style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; outline: none;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Marital Status</label>
+                        <select name="maritalStatus" required style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; background: white; outline: none;">
+                            <option value="" disabled selected>-- Select Status --</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Other">Prefer Not to Say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Email Address</label>
+                    <input type="email" name="email"  style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; outline: none;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Target Academic Department</label>
+                    <select name="course" required style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.9rem; background: white; outline: none;">
+                        <option value="" disabled selected>-- Select Course Path --</option>
+                        <option value="CDACC ICT Level 6">CDACC ICT National Certification (Level 6)</option>
+                        <option value="KNEC Diploma in ICT">KNEC Diploma in ICT (Module 1-3)</option>
+                        <option value="School of Hairdressing">School of Hairdressing Specialty</option>
+                        <option value="NITA Artisan Grade Test">NITA Artisan Grade Trade Testing</option>
+                        <option value="STC Short Courses">STC Short Courses Modular Program</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 2rem; background: var(--slate-bg); padding: 1.25rem; border-radius: 4px; border: 1px solid #E2E8F0;">
+                    <label style="display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--brand-blue); margin-bottom: 0.5rem;">Do you have any medical or health conditions?</label>
+                    <div style="display: flex; gap: 2rem; margin-bottom: 0.75rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer;">
+                            <input type="radio" name="hasHealthProblems" value="Yes" onclick="document.getElementById('healthDetailsPane').style.display='block'" style="accent-color: var(--brand-red);"> Yes
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer;">
+                            <input type="radio" name="hasHealthProblems" value="No" checked onclick="document.getElementById('healthDetailsPane').style.display='none'; document.getElementById('healthDetailsField').value=''" style="accent-color: var(--brand-red);"> No
+                        </label>
+                    </div>
+                    
+                    <div id="healthDetailsPane" style="display: none; margin-top: 0.75rem;">
+                        <label style="display: block; font-size: 0.75rem; font-weight: 600; color: #475569; margin-bottom: 0.25rem;">Please provide essential medical specifications for campus clinical safety archives:</label>
+                        <textarea id="healthDetailsField" name="healthProblemsDetails" rows="2" placeholder="Specify requirements, allergies, or physical considerations..." style="width: 100%; padding: 0.5rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.85rem; outline: none; resize: vertical; font-family: inherit;"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" style="width: 100%; background: var(--brand-red); color: white; border: none; padding: 1rem; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; cursor: pointer; letter-spacing: 0.05em; box-shadow: 0 4px 6px -1px rgba(200, 16, 46, 0.2);" onmouseover="this.style.background='#0F2C59'" onmouseout="this.style.background='#C8102E'">
+                    Commit Sealed Record to Registry
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="global-footer">
+        <div class="footer-bottom" style="margin: 0; padding: 0; border: none;">
+            <p>&copy; 2026 Spiritans Technical College. Systems Cryptographic Integrity Guarded.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

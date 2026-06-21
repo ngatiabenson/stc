@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritans Technical College</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="global-header">
+        <div class="nav-container">
+            <a href="/index.html" class="brand-lockup">
+                <img src="/photos/logo.png" alt="Spiritans Technical College Official Logo" class="brand-logo">
+                <div class="brand-text">
+                    <p class="brand-name">SPIRITANS</p>
+                    <p class="brand-tagline">Technical College</p>
+                </div>
+            </a>
+
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link-item">About Us <i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></a>
+                        <div class="nav-dropdown-menu">
+                            <a href="/about/principal.html" class="dropdown-link">Principal's Message</a>
+                            <a href="/about/history.html" class="dropdown-link">About STC Profile</a>
+                            <a href="/about/faq.html" class="dropdown-link">Frequently Asked Questions</a>
+                        </div>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link-item">Courses <i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></a>
+                        <div class="nav-dropdown-menu">
+                            <a href="/courses/cdacc.html" class="dropdown-link">CDACC Courses</a>
+                            <a href="/courses/knec.html" class="dropdown-link">KNEC Courses</a>
+                            <a href="/courses/hairdressing.html" class="dropdown-link">School of Hairdressing</a>
+                            <a href="/courses/nita.html" class="dropdown-link">NITA Grade Test Courses</a>
+                            <a href="/courses/short-courses.html" class="dropdown-link">STC Short Courses</a>
+                        </div>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link-item">Enrollments <i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></a>
+                        <div class="nav-dropdown-menu">
+                            <a href="/enrollments/admission.html" class="dropdown-link">Admission Requirements</a>
+                            <a href="/enrollments/apply.html" class="dropdown-link">Course Application Form</a>
+                        </div>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link-item">Life At STC <i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></a>
+                        <div class="nav-dropdown-menu">
+                            <a href="/life-at-stc/culture.html" class="dropdown-link">Cultural Day</a>
+                            <a href="/life-at-stc/student-life.html" class="dropdown-link">Student Life</a>
+                            <a href="/life-at-stc/field-trips.html" class="dropdown-link">Field Trips</a>
+                            <a href="/life-at-stc/sports.html" class="dropdown-link">Sports & Recreation</a>
+                        </div>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link-item">News & Galleries <i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></a>
+                        <div class="nav-dropdown-menu">
+                            <a href="/news/calendar.html" class="dropdown-link">Calendar of Events</a>
+                            <a href="/news/message.html" class="dropdown-link">Principal's Year-End Message</a>
+                            <a href="/news/fashion.html" class="dropdown-link">STC Fashion & Design</a>
+                            <a href="/news/sports-day.html" class="dropdown-link">STC Sports Day</a>
+                            <a href="/news/vacancies.html" class="dropdown-link">Vacancies</a>
+                            <a href="./downloads/" class="dropdown-link">System Downloads</a>
+                        </div>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link-item nav-link-portals">Portals <i class="fas fa-university nav-chevron" aria-hidden="true"></i></a>
+                        <div class="nav-dropdown-menu">
+                            <a href="/api/auth/student-login" class="dropdown-link">Student Portal Secure Entry</a>
+                            <a href="/api/auth/staff-login" class="dropdown-link">Staff System Console</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="/enrollments/apply.html" class="btn-apply">Apply Now</a>
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-overlay" aria-hidden="true"></div>
+
+    <nav id="nav-drawer" class="nav-drawer" aria-label="Mobile navigation">
+        <ul class="nav-drawer-list">
+            <li>
+                <button type="button" class="nav-drawer-dropdown-toggle" aria-expanded="false">About Us</button>
+                <div class="nav-drawer-panel">
+                    <a href="/about/principal.html">Principal's Message</a>
+                    <a href="/about/history.html">About STC Profile</a>
+                    <a href="/about/faq.html">Frequently Asked Questions</a>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="nav-drawer-dropdown-toggle" aria-expanded="false">Courses</button>
+                <div class="nav-drawer-panel">
+                    <a href="/courses/cdacc.html">CDACC Courses</a>
+                    <a href="/courses/knec.html">KNEC Courses</a>
+                    <a href="/courses/hairdressing.html">School of Hairdressing</a>
+                    <a href="/courses/nita.html">NITA Grade Test Courses</a>
+                    <a href="/courses/short-courses.html">STC Short Courses</a>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="nav-drawer-dropdown-toggle" aria-expanded="false">Enrollments</button>
+                <div class="nav-drawer-panel">
+                    <a href="/enrollments/admission.html">Admission Requirements</a>
+                    <a href="/enrollments/apply.html">Course Application Form</a>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="nav-drawer-dropdown-toggle" aria-expanded="false">Life At STC</button>
+                <div class="nav-drawer-panel">
+                    <a href="/life-at-stc/culture.html">Cultural Day</a>
+                    <a href="/life-at-stc/student-life.html">Student Life</a>
+                    <a href="/life-at-stc/field-trips.html">Field Trips</a>
+                    <a href="/life-at-stc/sports.html">Sports & Recreation</a>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="nav-drawer-dropdown-toggle" aria-expanded="false">News & Galleries</button>
+                <div class="nav-drawer-panel">
+                    <a href="/news/calendar.html">Calendar of Events</a>
+                    <a href="/news/message.html">Principal's Year-End Message</a>
+                    <a href="/news/fashion.html">STC Fashion & Design</a>
+                    <a href="/news/sports-day.html">STC Sports Day</a>
+                    <a href="/news/vacancies.html">Vacancies</a>
+                    <a href="./downloads/">System Downloads</a>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="nav-drawer-dropdown-toggle" aria-expanded="false">Portals</button>
+                <div class="nav-drawer-panel">
+                    <a href="/api/auth/student-login">Student Portal Secure Entry</a>
+                    <a href="/api/auth/staff-login">Staff System Console</a>
+                </div>
+            </li>
+        </ul>
+        <a href="/enrollments/apply.html" class="btn-apply btn-apply-drawer">Apply Now</a>
+    </nav>
+
+    <main id="main-content">
+
+        <section class="hero" aria-label="Spiritans Technical College training showcase">
+            <div class="hero-backdrop" aria-hidden="true"></div>
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-blueprint" aria-hidden="true"></div>
+            <div class="hero-atmosphere" aria-hidden="true"></div>
+            <div class="hero-collage" aria-hidden="true"></div>
+            <div class="hero-scrim"></div>
+           <div class="hero-content">
+
+```
+<div class="hero-location hero-animate">
+    Makueni County, Kenya
+</div>
+
+<h1 class="hero-title hero-animate">
+    Prepared for <span class="hero-title-accent">Life.</span>
+</h1>
+
+<p class="hero-description hero-animate">
+    A caring centre of excellence enriched by Gospel values.
+    We train young Kenyans in practical trade skills to reduce
+    poverty through self-reliance, craftsmanship, and technical excellence.
+</p>
+
+</div>
+
+
+           
+        </section>
+
+       <section class="trust-section reveal">
+    <div class="section-container">
+
+        <div class="trust-header">
+            <span class="section-eyebrow">Accredited Training</span>
+
+            <h2>
+                Nationally Recognized
+                <span>Certifications & Examinations</span>
+            </h2>
+
+            <p>
+                Our programs are accredited and examined by Kenya's leading
+                regulatory and assessment bodies.
+            </p>
+        </div>
+
+        <div class="trust-grid">
+
+            <div class="trust-card">
+                <img src="assets/logos/tveta.svg" alt="TVETA">
+                <h3>TVETA</h3>
+            </div>
+
+            <div class="trust-card">
+                <img src="assets/logos/knec.svg" alt="KNEC">
+                <h3>KNEC</h3>
+            </div>
+
+            <div class="trust-card">
+                <img src="assets/logos/cdacc.svg" alt="CDACC">
+                <h3>CDACC</h3>
+            </div>
+
+            <div class="trust-card">
+                <img src="assets/logos/nita.svg" alt="NITA">
+                <h3>NITA</h3>
+            </div>
+
+
+        </div>
+
+</div>
+    </div>
+</section>
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <div class="about-intro reveal">
+                    <span class="section-eyebrow">Who We Are</span>
+                    <h2 class="section-title">Rooted in Purpose</h2>
+                    <p class="about-lead">Spiritans Technical College was founded by the Holy Ghost Fathers (Spiritans) to bring world-class vocational training to the heart of Makueni County.</p>
+                </div>
+
+                <div class="about-cards reveal-stagger">
+                    <article class="about-card">
+                        <div class="about-card-icon" aria-hidden="true"><i class="fas fa-eye"></i></div>
+                        <h3 class="about-card-title">Our Vision</h3>
+                        <p class="about-card-text">Empowered by the Holy Spirit to discover, innovate, enhance, care and inspire.</p>
+                    </article>
+                    <article class="about-card">
+                        <div class="about-card-icon" aria-hidden="true"><i class="fas fa-heart"></i></div>
+                        <h3 class="about-card-title">Our Mission</h3>
+                        <p class="about-card-text">To be a caring center of excellence enriched by gospel values to genuinely impact the society and the environment.</p>
+                    </article>
+                    <article class="about-card">
+                        <div class="about-card-icon" aria-hidden="true"><i class="fas fa-book-open"></i></div>
+                        <h3 class="about-card-title">Our Philosophy</h3>
+                        <p class="about-card-text">We develop wholesome, well-rounded persons that easily fit into civil, business and management communities with effective, focused and visionary contributions.</p>
+                    </article>
+                </div>
+
+                <blockquote class="about-commitment reveal">
+                    <p class="about-commitment-text">"Spiritans College offers education and training aimed at reducing poverty through provision of employment skills, competences, self-reliance and improvement of human life."</p>
+                    <cite class="about-commitment-label">Our Commitment</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="video-showcase" aria-labelledby="video-heading">
+            <div class="section-container">
+                <div class="video-showcase-header reveal">
+                    <span class="section-eyebrow">Experience Our Campus</span>
+                    <h2 id="video-heading" class="section-title">Take a Virtual Tour</h2>
+                </div>
+                <div class="video-showcase-player reveal">
+                    <div class="video-showcase-chrome">
+                        <i class="fas fa-video" aria-hidden="true"></i> Campus Video Tour
+                    </div>
+                    <div class="video-showcase-frame">
+                        <video controls poster="/photos/graduation.jpg">
+                            <source src="/videos/stc-tour.mp4" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
+                        <button type="button" class="video-play-overlay" aria-label="Play campus tour video">
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="global-footer">
+        <div class="footer-grid">
+            <div>
+                <h4 class="footer-heading">Spiritans Technical College</h4>
+                <p class="footer-text">Providing industry-grade technical competence validation frameworks under certified national educational parameters in Kenya.</p>
+            </div>
+            <div>
+                <h4 class="footer-heading">Academic Paths</h4>
+                <ul class="footer-links">
+                    <li><a href="/courses/cdacc.html">CDACC Frameworks</a></li>
+                    <li><a href="/courses/knec.html">KNEC National Programs</a></li>
+                    <li><a href="/courses/nita.html">NITA Artisan Grade Testing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">News</h4>
+                <p class="footer-text footer-contact"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> PO.BOX 43-90132 SULTAN HAMUD</p>
+                <p class="footer-text footer-contact"><i class="fas fa-envelope" aria-hidden="true"></i> spiritanstechnical@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Spiritans Technical College. Managed via Enterprise Quality Assurance Guidelines.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com/SpiritansTechnicalCollege" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://instagram.com/spiritanstechnicalcollege" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://tiktok.com/@spiritans.technic" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <i class="fab fa-tiktok" aria-hidden="true"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="/js/hero-collage-data.js"></script>
+    <script src="/js/hero-collage.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

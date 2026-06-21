@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Downloads - Spiritans Technical College</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .download-card { background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 1.5rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .download-btn { background: #C82333; color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; padding: 0.6rem 1.2rem; border-radius: 4px; display: flex; align-items: center; gap: 0.5rem; }
+        .file-meta { font-size: 0.75rem; color: #64748B; font-weight: 700; text-transform: uppercase; background: #F1F5F9; padding: 0.2rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+    </style>
+</head>
+<body style="background: #F8FAFC; font-family: sans-serif;">
+
+    <header class="global-header" style="background: #0F2C59; color: white; padding: 1rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="font-size: 1.25rem; font-weight: 900; margin:0;">SPIRITANS TECHNICAL COLLEGE</h2>
+            <a href="/index.html" style="color: white; text-decoration: none; font-size: 0.9rem; font-weight: 700;"><i class="fas fa-home"></i> Home</a>
+        </div>
+    </header>
+
+    <main style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <span style="color: #C82333; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Central Document Repository</span>
+            <h2 style="color: #0F2C59; font-size: 2.25rem; font-weight: 900; margin: 0;">Academic Downloads & Registries</h2>
+            <p style="color: #64748B; font-size: 0.95rem; margin-top: 0.5rem;">Authorized curriculum components and fee schedules uploaded by the Office of the Principal.</p>
+        </div>
+
+        <div style="display: flex; gap: 2.5rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 320px;">
+                <h3 style="color: #0F2C59; font-size: 1.3rem; font-weight: 900; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #0F2C59;">
+                    <i class="fas fa-book-open"></i> Syllabi & Project Guidelines
+                </h3>
+                <div id="curriculum-target"></div>
+            </div>
+
+            <div style="flex: 1; min-width: 320px;">
+                <h3 style="color: #C82333; font-size: 1.3rem; font-weight: 900; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #C82333;">
+                    <i class="fas fa-folder-open"></i> Institutional Structures & Forms
+                </h3>
+                <div id="institutional-target"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function renderPublicDownloads() {
+            // Baseline data if no custom updates exist yet
+            const defaultData = [
+                { id: 1, category: 'curriculum', title: 'KNEC Diploma in ICT Syllabus', desc: 'Complete course breakdown for Module 1, 2, and 3 trajectories.', fileUrl: '/assets/docs/knec-ict-syllabus.pdf', size: '2.4 MB' },
+                { id: 2, category: 'curriculum', title: 'Module 3 Trade Project Guide', desc: 'Official documentation structure blueprint and database metrics.', fileUrl: '/assets/docs/module3-project-guidelines.pdf', size: '1.1 MB' },
+                { id: 3, category: 'institutional', title: 'Fee Structure 2026/2027', desc: 'Installment schedules for all engineering and artisan options.', fileUrl: '/assets/docs/stc-fee-structure-2026.pdf', size: '1.5 MB' }
+            ];
+
+            const saved = localStorage.getItem('stc_documents');
+            const docs = saved ? JSON.parse(saved) : defaultData;
+
+            const currContainer = document.getElementById('curriculum-target');
+            const instContainer = document.getElementById('institutional-target');
+
+            let currHtml = '';
+            let instHtml = '';
+
+            docs.forEach(doc => {
+                const layout = `
+                    <div class="download-card">
+                        <div>
+                            <h4 style="color: #0F2C59; font-weight: 800; font-size: 1.05rem; margin: 0 0 0.3rem 0;">${doc.title}</h4>
+                            <p style="color: #334155; font-size: 0.85rem; margin: 0;">${doc.desc}</p>
+                        </div>
+                        <a href="${doc.fileUrl}" class="download-btn" download>
+                            <i class="fas fa-file-pdf"></i> Download <span class="file-meta">${doc.size}</span>
+                        </a>
+                    </div>
+                `;
+                if (doc.category === 'curriculum') currHtml += layout;
+                else instHtml += layout;
+            });
+
+            currContainer.innerHTML = currHtml || '<p style="color:#64748B;">No academic files listed.</p>';
+            instContainer.innerHTML = instHtml || '<p style="color:#64748B;">No institutional forms listed.</p>';
+        }
+        window.onload = renderPublicDownloads;
+    </script>
+</body>
+</html>

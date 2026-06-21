@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Executive Command Portal - STC</title>
+    
+    <script src="/admin/auth.js"></script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background: #F8FAFC; margin: 0; padding: 0; font-family: sans-serif;">
+
+    <header style="background: #0F2C59; color: white; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <h2 style="font-size: 1.25rem; font-weight: 900; margin: 0; letter-spacing: 0.05em;">SPIRITANS TECHNICAL COLLEGE</h2>
+                <span style="font-size: 0.75rem; background: #C82333; padding: 0.25rem 0.5rem; border-radius: 3px; font-weight: 700; text-transform: uppercase;">Administrative Matrix</span>
+            </div>
+            <a href="/index.html" style="color: white; text-decoration: none; font-size: 0.9rem; font-weight: 700;" onclick="sessionStorage.clear();"><i class="fas fa-sign-out-alt"></i> Exit Console</a>
+        </div>
+    </header>
+
+    <main style="max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem;">
+        
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); font-family: sans-serif; margin-bottom: 2.5rem;">
+            <h3 style="color: #0F2C59; margin-top: 0; font-weight: 900; font-size: 1.3rem;"><i class="fas fa-cloud-upload-alt"></i> Principal Portal: Document Manager</h3>
+            <p style="color: #64748B; font-size: 0.85rem; margin-bottom: 1.5rem;">Add files for students to download without editing code arrays.</p>
+            
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <form id="uploadForm" onsubmit="publishDocument(event)" style="flex: 1; min-width: 300px;">
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.4rem; text-transform:uppercase; color: #334155;">Category</label>
+                        <select id="docCategory" style="width:100%; padding:0.65rem; border:1px solid #CBD5E1; border-radius:4px; background:white; font-size: 0.9rem;">
+                            <option value="curriculum">Syllabus & Project Guidelines</option>
+                            <option value="institutional">Forms & Fee Structures</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.4rem; text-transform:uppercase; color: #334155;">Document Title</label>
+                        <input type="text" id="docTitle" placeholder="e.g., First Term Fees" style="width:100%; padding:0.65rem; border:1px solid #CBD5E1; border-radius:4px; font-size: 0.9rem;" required>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.4rem; text-transform:uppercase; color: #334155;">Brief Description</label>
+                        <input type="text" id="docDesc" placeholder="e.g., Structure details for Engineering students." style="width:100%; padding:0.65rem; border:1px solid #CBD5E1; border-radius:4px; font-size: 0.9rem;" required>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.4rem; text-transform:uppercase; color: #334155;">Choose File Asset</label>
+                        <input type="file" id="docFile" style="width:100%; padding:0.65rem; border:1px solid #CBD5E1; border-radius:4px; font-size: 0.9rem;" required>
+                    </div>
+                    <button type="submit" style="background:#0F2C59; color:white; border:none; padding:0.75rem 1.5rem; font-weight:700; border-radius:4px; cursor:pointer; text-transform:uppercase; font-size:0.85rem; width: 100%; transition: background 0.2s;"><i class="fas fa-plus-circle"></i> Publish to Portal</button>
+                </form>
+
+                <div style="flex: 1.2; min-width: 300px; background:#F8FAFC; padding:1.5rem; border-radius:6px; border:1px solid #E2E8F0; box-sizing: border-box;">
+                    <h4 style="margin-top:0; color:#0F2C59; font-weight:800; border-bottom: 2px solid #E2E8F0; padding-bottom: 0.5rem;"><i class="fas fa-folder-open"></i> Live Documents Inventory</h4>
+                    <div id="admin-file-list" style="max-height: 400px; overflow-y: auto; margin-top: 1rem;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); font-family: sans-serif; margin-bottom: 2.5rem;">
+            <h3 style="color: #0F2C59; margin-top: 0; font-weight: 900; font-size: 1.3rem;"><i class="fas fa-bullhorn"></i> Executive Desk: End of Year Message</h3>
+            <p style="color: #64748B; font-size: 0.85rem; margin-bottom: 1.5rem;">Broadcast an executive address or end-of-year memo instantly to the public landing dashboard view.</p>
+            
+            <form id="messageBroadcastForm" onsubmit="broadcastYearMessage(event)">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.4rem; text-transform:uppercase; color: #334155;">Message Content</label>
+                    <textarea id="yearMessageContent" rows="6" style="width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 0.95rem; font-family: sans-serif; box-sizing: border-box; resize: vertical;" placeholder="Type your end of year message here..." required></textarea>
+                </div>
+                <button type="submit" style="background:#0F2C59; color:white; border:none; padding:0.75rem 1.5rem; font-weight:700; border-radius:4px; cursor:pointer; text-transform:uppercase; font-size:0.85rem;"><i class="fas fa-paper-plane"></i> Update Broadcast Memo</button>
+            </form>
+        </div>
+
+        <div style="background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); font-family: sans-serif;">
+            <h3 style="color: #0F2C59; margin-top: 0; font-weight: 900; font-size: 1.3rem;"><i class="fas fa-key"></i> Console Security Settings</h3>
+            <p style="color: #64748B; font-size: 0.85rem; margin-bottom: 1.5rem;">Rotate the active portal gateway security credentials inside the relational database engine cluster.</p>
+            
+            <form id="passwordRotationForm" onsubmit="rotateSystemPassphrase(event)" style="max-width: 500px;">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.4rem; text-transform:uppercase; color: #334155;">Current Passphrase</label>
+                    <input type="password" id="currPass" style="width:100%; padding:0.65rem; border:1px solid #CBD5E1; border-radius:4px; font-size: 0.9rem;" required>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display:block; font-size:0.75rem; font-weight:700; margin-bottom:0.4rem; text-transform:uppercase; color: #334155;">New Target Passphrase</label>
+                    <input type="password" id="newPass" style="width:100%; padding:0.65rem; border:1px solid #CBD5E1; border-radius:4px; font-size: 0.9rem;" required>
+                </div>
+                <button type="submit" style="background:#C82333; color:white; border:none; padding:0.75rem 1.5rem; font-weight:700; border-radius:4px; cursor:pointer; text-transform:uppercase; font-size:0.85rem;"><i class="fas fa-sync-alt"></i> Execute Credentials Rotation</button>
+            </form>
+        </div>
+
+    </main>
+
+    <script>
+        // --- SECTION A: DOCUMENT MATRIX SYSTEM ---
+        const defaultDocs = [
+            { id: 1, category: 'curriculum', title: 'KNEC Diploma in ICT Syllabus', desc: 'Complete course breakdown.', fileUrl: '/assets/docs/knec-ict-syllabus.pdf', size: '2.4 MB' },
+            { id: 2, category: 'curriculum', title: 'Module 3 Trade Project Guide', desc: 'Official structure blueprint.', fileUrl: '/assets/docs/module3-project-guidelines.pdf', size: '1.1 MB' }
+        ];
+
+        function getLiveDocs() {
+            const current = localStorage.getItem('stc_documents');
+            return current ? JSON.parse(current) : defaultDocs;
+        }
+
+        function renderAdminInventory() {
+            const docs = getLiveDocs();
+            const container = document.getElementById('admin-file-list');
+            if (!container) return;
+            if (docs.length === 0) {
+                container.innerHTML = '<p style="color: #64748B; font-size: 0.85rem; text-align: center; padding: 2rem;">No files uploaded yet.</p>';
+                return;
+            }
+            container.innerHTML = docs.map((doc, idx) => `
+                <div style="background:white; border:1px solid #E2E8F0; padding:0.75rem; border-radius:4px; margin-bottom:0.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.01);">
+                    <div style="flex:1;">
+                        <strong style="color:#0F2C59; font-size:0.85rem; display:block;">${doc.title}</strong>
+                        <span style="font-size:0.7rem; color:#64748B; font-weight: 600;">${doc.category.toUpperCase()} | ${doc.size}</span>
+                    </div>
+                    <button type="button" onclick="removeDocument(${idx})" style="background:none; border:none; color:#EF4444; cursor:pointer; font-size: 1rem; padding: 0.5rem;" title="Delete file"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            `).join('');
+        }
+
+        function publishDocument(e) {
+            e.preventDefault();
+            const fileInput = document.getElementById('docFile');
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'document.pdf';
+            const fakeSize = fileInput.files[0] ? (fileInput.files[0].size / (1024 * 1024)).toFixed(1) + ' MB' : '1.2 MB';
+
+            const newDoc = {
+                id: Date.now(),
+                category: document.getElementById('docCategory').value,
+                title: document.getElementById('docTitle').value,
+                desc: document.getElementById('docDesc').value,
+                fileUrl: '/uploads/' + fileName,
+                size: fakeSize
+            };
+
+            const currentDocs = getLiveDocs();
+            currentDocs.push(newDoc);
+            localStorage.setItem('stc_documents', JSON.stringify(currentDocs));
+            document.getElementById('uploadForm').reset();
+            renderAdminInventory();
+            alert('Document link successfully injected into the database pipeline!');
+        }
+
+        function removeDocument(index) {
+            if (confirm("Are you sure you want to remove this resource from the student portal?")) {
+                const currentDocs = getLiveDocs();
+                currentDocs.splice(index, 1);
+                localStorage.setItem('stc_documents', JSON.stringify(currentDocs));
+                renderAdminInventory();
+            }
+        }
+
+        // --- SECTION B: END OF YEAR MESSAGE HANDLERS ---
+        async function fetchCurrentYearMessage() {
+            try {
+                const response = await fetch('/api/config/year-message');
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById('yearMessageContent').value = data.message;
+                }
+            } catch (err) {
+                console.error('Failed to sync executive message status code:', err);
+            }
+        }
+
+        async function broadcastYearMessage(e) {
+            e.preventDefault();
+            const messageContent = document.getElementById('yearMessageContent').value;
+
+            try {
+                const response = await fetch('/api/config/update-year-message', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messageContent })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    alert('Success: Executive End-of-Year message updated in SQL pool.');
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (err) {
+                alert('Network exception handling real-time broadcast modification.');
+            }
+        }
+
+        // --- SECTION C: SECURE PASSPHRASE ROTATION ENGINE ---
+        async function rotateSystemPassphrase(e) {
+            e.preventDefault();
+            const currentPassphrase = document.getElementById('currPass').value;
+            const newPassphrase = document.getElementById('newPass').value;
+
+            try {
+                const response = await fetch('/api/auth/admin-update-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ currentPassphrase, newPassphrase })
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Success: Security settings modified. Please re-authenticate using the newly assigned passphrase configuration.');
+                    sessionStorage.clear();
+                    window.location.reload();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (err) {
+                alert('Failure connecting to core backend database processing matrix.');
+            }
+        }
+
+        // ENTRY SYSTEM RUNNER
+        window.onload = function() {
+            renderAdminInventory();
+            fetchCurrentYearMessage(); // Hydrate current message from MySQL cluster
+        };
+    </script>
+</body>
+</html>

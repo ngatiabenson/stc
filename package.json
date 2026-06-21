@@ -1,0 +1,13 @@
+{
+  "name": "stc-portal-platform",
+  "version": "1.0.0",
+  "description": "Spiritans Technical College - Secure Multi-File Portal Layer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
+  }
+}

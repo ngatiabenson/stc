@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Calendar of Events - Spiritans Technical College</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .public-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; }
+        .public-table th { background: #0F2C59; color: white; padding: 1rem; text-align: left; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; border-bottom: 4px solid var(--brand-red); }
+        .public-table td { padding: 1.2rem 1rem; border-bottom: 1px solid #E2E8F0; color: var(--text-main); font-size: 0.9rem; line-height: 1.5; vertical-align: top; }
+        .public-table tr:nth-child(even) { background-color: #F8FAFC; }
+        .date-badge { display: inline-block; background: #FFF1F2; color: #9F1239; font-weight: 800; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid #FFE4E6; }
+        .responsible-badge { display: inline-block; background: #F0FDF4; color: #166534; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid #DCFCE7; }
+    </style>
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="nav-container">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <img src="/photos/logo.png" alt="STC Logo" style="width: 50px; height: 50px; object-fit: contain;">
+                <div>
+                    <h2 style="color: var(--brand-blue); font-size: 1.25rem; font-weight: 900; margin:0;">SPIRITANS</h2>
+                    <h5 style="color: var(--brand-red); font-size: 0.65rem; font-weight: 800; text-transform: uppercase; margin:0;">Technical College</h5>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html" class="nav-link-item">Home</a></li>
+                    <li><a href="/enrollments/apply.html" class="nav-link-item" style="color: var(--brand-red); font-weight: 800;">Apply Online</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="max-width: var(--max-width); margin: 4rem auto 6rem auto; padding: 0 2rem;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <span style="color: var(--brand-red); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Official Academic Almanac</span>
+            <h2 style="color: var(--brand-blue); font-size: 2.25rem; font-weight: 900; margin: 0;">Calendar of Events</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Live semester operational roadmap directly verified by the office of the Principal.</p>
+        </div>
+
+        <table class="public-table">
+            <thead>
+                <tr>
+                    <th style="width: 20%;"><i class="far fa-calendar-alt"></i> Date</th>
+                    <th style="width: 55%;"><i class="fas fa-tasks"></i> Activity</th>
+                    <th style="width: 25%;"><i class="fas fa-user-check"></i> Responsible</th>
+                </tr>
+            </thead>
+            <tbody id="public-calendar-tbody">
+                </tbody>
+        </table>
+    </main>
+
+    <footer class="global-footer">
+        <div class="footer-bottom" style="margin: 0; padding: 0; border: none;">
+            <p>&copy; 2026 Spiritans Technical College. Central Planning Registry.</p>
+        </div>
+    </footer>
+
+    <script>
+        function loadLiveTable() {
+            // Safe fallback schema matching our design defaults
+            const defaultData = [
+                { date: 'May 11, 2026', activity: 'Opening Day & Reporting for all Technical/Artisan Classes. Verification of baseline admissions packets.', responsible: 'Academic Registrar' },
+                { date: 'May 22, 2026', activity: 'Final Deadline for Student Portal Course Validation and Initial Fee Installment Clearance.', responsible: 'Finance Bursar' },
+                { date: 'June 19, 2026', activity: 'Submission of Module 3 Diploma Trade Project Proposals and SQL Database Blueprint Designs.', responsible: 'ICT Department Head' },
+                { date: 'July 03, 2026', activity: 'Mid-Term Break Commences. Execution of Annual Institutional Campus Cultural & Design Day.', responsible: 'Student Council / Dean' },
+                { date: 'July 24, 2026', activity: 'Bi-Annual Industrial Site Tours to regional server farms and electrical hubs.', responsible: 'All Department Heads' },
+                { date: 'Aug 10 - 14, 2026', activity: 'Administration of National End-of-Term Engineering and Technical Practical Trade Tests.', responsible: 'KNEC Examiners / Principal' }
+            ];
+
+            const saved = localStorage.getItem('stc_events');
+            const events = saved ? JSON.parse(saved) : defaultData;
+            const tbody = document.getElementById('public-calendar-tbody');
+
+            if(events.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:var(--text-muted); padding:3rem;">No active operations listed in the roster for this semester.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = events.map(ev => `
+                <tr>
+                    <td><span class="date-badge">${ev.date || ev.timeline || 'TBA'}</span></td>
+                    <td style="font-weight: 600; color: #1E293B;">${ev.activity || ev.heading || ''}</td>
+                    <td><span class="responsible-badge">${ev.responsible || 'Registry'}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        window.onload = loadLiveTable;
+    </script>
+</body>
+</html>
